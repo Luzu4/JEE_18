@@ -7,16 +7,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/servlet11")
-public class Servlet11 extends HttpServlet {
-
+@WebServlet("/getForm3")
+public class Form3 extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        System.out.println("Hello First Servlet");
-        resp.getWriter().println("<h1>Content11</h1>");
+        int numberFromUser = Integer.parseInt(req.getParameter("page"));
+
+        for(int i = numberFromUser; i>0;i--){
+            if(numberFromUser%i == 0 ){
+                resp.getWriter().println(i);
+            }
+        }
+
     }
-
-
 }
